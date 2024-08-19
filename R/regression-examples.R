@@ -36,7 +36,7 @@ tbl_uvregression(
 
 ## Multivariable regressions
 
-## Some regressions
+## Fitting some regressions
 
 linear_model <- lm(income ~ sex_cat + age_bir + race_eth_cat,
 									 data = nlsy)
@@ -50,7 +50,7 @@ logistic_model <- glm(glasses ~ eyesight_cat + sex_cat + income,
 											data = nlsy, family = binomial())
 
 
-## Tables
+## Creating tables
 
 tbl_regression(
 	linear_model,
@@ -95,3 +95,5 @@ tbl_int <- tbl_regression(
 
 tbl_merge(list(tbl_no_int, tbl_int),
 					tab_spanner = c("**Model 1**", "**Model 2**"))
+
+
