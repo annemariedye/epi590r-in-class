@@ -63,3 +63,31 @@ mean_sleep <- mean(nlsy$sleep_wknd, na.rm = TRUE)
 print(mean_sleep)
 ```
 
+```{r}
+#| label: tbl-descr
+#| tbl-cap: "Descriptive statistics"
+#| output-location: slide
+table1 <- tbl_summary(
+  nlsy,
+  by = sex_cat,
+  include = c(sex_cat, race_eth_cat, region_cat,
+              eyesight_cat, glasses, age_bir)) |> 
+  add_overall(last = TRUE)
+table1
+```
+
+\`\`\`
+
+inline_text(table1, variable = "age_bir", column = "stat_1")
+
+```{r}
+#| label: tbl-descr
+#| tbl-cap: "Descriptive statistics"
+#| output-location: slide
+table2 <- tbl_summary(
+  nlsy,
+  include = c(sleep_wknd, sleep_wkdy))
+  statistic = (contains("sleep") ~ "{median}")|> 
+  add_overall(last = TRUE)
+table2
+```
